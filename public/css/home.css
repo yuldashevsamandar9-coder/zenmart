@@ -209,7 +209,6 @@
 }
 
 .navbar_bott_menu_box .browse_box {
-  margin-top: 10px;
   width: 185px;
   height: 30px;
 
@@ -235,11 +234,11 @@
 
 .navbar_bott_menu_box .navbar_route_menu {
   margin-left: 12px;
-  width: 690px;
   display: flex;
   flex-direction: row;
 }
 .navbar_route_menu .router_menu {
+  margin-right: 20px;
   width: auto;
   height: 41px;
 
@@ -254,6 +253,7 @@
   font-size: 16px;
   line-height: 28px;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .router_menu a.active {
