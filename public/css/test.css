@@ -1,91 +1,184 @@
-.home_page .tv_product_frame {
-  position: relative;
-  margin-top: 90px;
-  width: 100%;
-  height: auto;
-
+/* HEADER_FRAME START */
+.home_page {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.tv_product_frame .container {
   flex-direction: column;
+  padding-bottom: 60px;
 }
-.tv_product_frame .container .tv_product_wrapper {
-  margin-top: 30px;
+.white_svg {
+  filter: brightness(0) invert(1);
+}
+
+.container .category_top {
   width: 100%;
   height: auto;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
-.tv_product_frame .tv_product_wrapper .tv_product_boxes {
-  width: 1300px;
-  height: 452px;
-
+.container .category_top div {
   display: flex;
   flex-direction: row;
 }
-.tv_product_frame .tv_product_boxes .tv_product_box {
-  width: 260px;
-  height: 452px;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container .category_top span {
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 48px;
+  text-transform: capitalize;
 
-  background: #ffffff;
+  color: #041e42;
 }
-.tv_product_frame .tv_product_box .product_img {
+.container .category_top a {
+  margin-left: 30px;
+  font-family: "Jost";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 22px;
+  text-transform: capitalize;
+
+  color: #041e42;
+}
+
+.container .category_top a:hover {
+  border-bottom: 2px solid #041e42;
+}
+
+/*  PAGINATION START */
+.container .pagionation_box {
+  margin-top: 30px;
   width: 100%;
-  height: 280px;
+  height: auto;
 
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+.container .pagionation_box .pagination_main {
+  width: auto;
+  height: 24px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container .pagination_main .pagination_dot {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: row;
+}
+.container .pagination_main img {
+  cursor: pointer;
+}
+.container .pagination_dot .dot {
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+}
+
+.container .pagination_dot .dot.active {
+  border: 2px solid #112137;
+}
+.container .pagination_dot .dot div {
+  width: 4px;
+  height: 4px;
+  background: #112137;
+  border-radius: 50%;
+}
+.container .hover_border {
+  margin-top: 3px;
+  width: 32px;
+  height: 2px;
+  background: #041e42;
+}
+.container .product_wrapper .next_prev_box {
+  width: 25px;
+}
+.container .next_prev_box img {
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+/*  Product cart */
+.container .product_content_box {
+  padding: 5px 22px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+}
+.container .product_content_box .product_title {
+  font-family: "Jost";
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 22px;
+  text-transform: uppercase;
+
+  color: #041e42;
+}
+.container .product_content_box .product_disc {
+  margin-top: 7px;
+  font-family: "Jost";
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  color: #041e42;
+}
+.container .product_content_box .review_box {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
-/* Swiper asosiy konteyner */
-.tv_product_boxes.swiper {
-  width: 100%;
-  overflow: hidden;
+.container .review_box img {
+  margin-right: 5px;
 }
-
-/* Swiper wrapper */
-.tv_product_boxes .swiper-wrapper {
+.container .review_box span {
+  margin-right: 10px;
+  font-family: "Jost";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #626974;
+}
+.container .product_content_box .price_box {
+  margin-top: 10px;
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+.container .price_box strong {
+  font-family: "Jost";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
 
-/* Har bir slide */
-.tv_product_boxes .swiper-slide {
-  height: auto;
+  color: #041e42;
 }
-.tv_product_box {
-  background: #fff;
-  border-radius: 10px;
-  padding: 12px;
-  box-sizing: border-box;
-  transition: 0.3s;
-}
+.container .price_box span {
+  margin-left: 10px;
+  font-family: "Jost";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration-line: line-through;
 
-.tv_product_box:hover {
-  transform: translateY(-5px);
-}
-.product_img img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-}
-.next_prev_box {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-  margin-bottom: 15px;
-}
-
-.next_prev_box img {
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
+  color: #626974;
 }
