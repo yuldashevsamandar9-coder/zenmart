@@ -2,7 +2,6 @@
 .home_page {
   display: flex;
   flex-direction: column;
-  padding-bottom: 60px;
 }
 .white_svg {
   filter: brightness(0) invert(1);
@@ -760,6 +759,7 @@
   justify-content: center;
 
   background-image: url(../images/icons/event_bg.png);
+  background-size: cover;
 }
 .event_frame .container {
   flex-direction: row;
