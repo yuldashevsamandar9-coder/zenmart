@@ -1,0 +1,433 @@
+/* =========================================================================
+   Zenmart — sign in, create account, my account
+   ========================================================================= */
+
+/* ---------- auth ---------- */
+.auth_page {
+  background: linear-gradient(180deg, var(--surface) 0, var(--white) 520px);
+}
+.auth_card {
+  width: min(100%, 744px);
+  margin: 12px auto 0;
+  padding: clamp(28px, 6vw, 67px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+.auth_card h1 {
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 500;
+  text-align: center;
+}
+.auth_sub {
+  max-width: 46ch;
+  margin: 10px auto 32px;
+  color: var(--muted);
+  text-align: center;
+}
+.auth_form {
+  display: grid;
+  gap: 22px;
+}
+.auth_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.auth_link,
+.auth_switch a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.auth_link:hover,
+.auth_switch a:hover {
+  color: var(--purple);
+}
+.auth_or {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 28px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.auth_or::before,
+.auth_or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.social_auth {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.social_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-sm);
+  background: var(--white);
+  font-size: 15px;
+  font-weight: 500;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+.social_btn:hover {
+  border-color: var(--ink);
+  background: var(--surface);
+}
+.social_btn .fa-google {
+  color: #ea4335;
+}
+.social_btn .fa-facebook-f {
+  color: #1877f2;
+}
+.auth_switch {
+  margin-top: 28px;
+  text-align: center;
+}
+.demo_note {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-radius: var(--r);
+  background: var(--purple-50);
+  color: var(--ink);
+  font-size: 14px;
+}
+.demo_note i {
+  margin-top: 3px;
+  color: var(--purple);
+}
+.terms_check {
+  align-items: flex-start;
+}
+.terms_check input {
+  margin-top: 2px;
+}
+
+/* ---------- my account ---------- */
+.account_layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+  margin-top: 12px;
+}
+.account_sidebar {
+  position: sticky;
+  top: 170px;
+}
+.account_user {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 22px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.account_avatar {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--purple);
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+}
+.account_user strong {
+  display: block;
+  font-size: 17px;
+  font-weight: 500;
+}
+.account_user span:not(.account_avatar) {
+  display: block;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--muted);
+  font-size: 14px;
+}
+.account_nav {
+  display: grid;
+  gap: 2px;
+}
+.account_nav a,
+.account_nav button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 48px;
+  padding: 0 14px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: none;
+  color: var(--ink);
+  font-size: 16px;
+  text-align: left;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.account_nav i {
+  width: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+.account_nav a:hover,
+.account_nav button:hover {
+  background: var(--surface);
+}
+.account_nav a.active {
+  background: var(--purple-50);
+  color: var(--purple);
+  font-weight: 500;
+}
+.account_nav a.active i {
+  color: var(--purple);
+}
+.account_nav button {
+  margin-top: 8px;
+  color: #b3261e;
+}
+.account_nav button i {
+  color: #b3261e;
+}
+.account_main .page_title {
+  margin-bottom: 24px;
+}
+.sub_tabs {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+}
+.sub_tabs button {
+  position: relative;
+  min-height: 50px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.sub_tabs button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transition: transform 0.3s var(--ease);
+}
+.sub_tabs button[aria-selected="true"] {
+  color: var(--ink);
+}
+.sub_tabs button[aria-selected="true"]::after {
+  transform: scaleX(1);
+}
+.panel.narrow {
+  max-width: 560px;
+}
+.form_stack {
+  display: grid;
+  gap: 22px;
+}
+.form_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.perm_list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.perm_list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 0;
+}
+.perm_list li + li {
+  border-top: 1px solid var(--line);
+}
+.perm_list strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.perm_list p {
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* orders */
+.order_list {
+  display: grid;
+  gap: 16px;
+}
+.order_card {
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+}
+.order_card header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 36px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.order_card header span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+.order_card header strong {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.order_card .status {
+  margin-left: auto;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #fff4d6;
+  color: #8a5a00;
+  font-size: 13px;
+  font-weight: 500;
+}
+.order_card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.order_card li {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+}
+.order_card li img {
+  width: 44px;
+  height: 44px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  object-fit: contain;
+}
+.order_card li span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.order_card li b {
+  font-weight: 500;
+}
+.wish_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 20px;
+}
+.wish_grid .product_box {
+  border: 1px solid var(--line);
+}
+.table_panel {
+  padding: 8px 8px;
+  overflow-x: auto;
+}
+.table_panel .empty_state {
+  border: none;
+}
+.guest_actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.guest_wish {
+  margin-top: 56px;
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 900px) {
+  .account_layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .account_sidebar {
+    position: static;
+  }
+  .account_nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .account_nav a,
+  .account_nav button {
+    flex-shrink: 0;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .account_nav button {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .social_auth {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .auth_card {
+    border: none;
+    box-shadow: none;
+    padding-inline: 4px;
+    background: transparent;
+  }
+  .form_actions .btn {
+    flex: 1;
+  }
+  .wish_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .order_card {
+    padding: 16px;
+  }
+  .order_card .status {
+    margin-left: 0;
+  }
+}

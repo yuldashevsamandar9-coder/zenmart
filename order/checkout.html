@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout · Zenmart</title>
+    <meta name="theme-color" content="#443297" />
+    <link rel="icon" href="../public/images/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/css/command.css" />
+    <link rel="stylesheet" href="../public/css/order.css" />
+  </head>
+  <body data-page="checkout" data-root="../">
+    <div data-zm="header"></div>
+
+    <main id="main" class="container">
+      <ol class="page_router">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><span aria-current="page">Checkout</span></li>
+      </ol>
+
+      <h1 class="page_title">Checkout</h1>
+
+      <ol class="checkout_steps" aria-label="Checkout progress">
+        <li class="done"><a href="cart.html"><span>1</span> Cart</a></li>
+        <li class="current" aria-current="step"><span>2</span> Details &amp; Payment</li>
+        <li><span>3</span> Confirmation</li>
+      </ol>
+
+      <form class="checkout_layout" id="checkout-form" novalidate>
+        <div class="checkout_main">
+          <section class="panel" aria-labelledby="billing-title">
+            <h2 class="form_title" id="billing-title">Billing details</h2>
+            <div class="form_grid">
+              <div class="field">
+                <label for="first">First name <span class="req" aria-hidden="true">*</span></label>
+                <input id="first" name="first" autocomplete="given-name" data-rules="required" />
+              </div>
+              <div class="field">
+                <label for="last">Last name <span class="req" aria-hidden="true">*</span></label>
+                <input id="last" name="last" autocomplete="family-name" data-rules="required" />
+              </div>
+              <div class="field full">
+                <label for="company">Company name <span class="optional">(optional)</span></label>
+                <input id="company" name="company" autocomplete="organization" />
+              </div>
+              <div class="field full">
+                <label for="country">Country / Region <span class="req" aria-hidden="true">*</span></label>
+                <select id="country" name="country" autocomplete="country-name" data-rules="required">
+                  <option value="">Choose a country</option>
+                  <option>United States</option>
+                  <option>United Kingdom</option>
+                  <option>South Korea</option>
+                  <option>Uzbekistan</option>
+                  <option>Germany</option>
+                  <option>Canada</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="address">Street address <span class="req" aria-hidden="true">*</span></label>
+                <input id="address" name="address" autocomplete="street-address" placeholder="House number and street name" data-rules="required" />
+              </div>
+              <div class="field">
+                <label for="city">Town / City <span class="req" aria-hidden="true">*</span></label>
+                <input id="city" name="city" autocomplete="address-level2" data-rules="required" />
+              </div>
+              <div class="field">
+                <label for="zip">Postcode / ZIP <span class="req" aria-hidden="true">*</span></label>
+                <input id="zip" name="zip" autocomplete="postal-code" data-rules="required zip" />
+              </div>
+              <div class="field">
+                <label for="phone">Phone <span class="req" aria-hidden="true">*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567" data-rules="required phone" />
+              </div>
+              <div class="field">
+                <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" data-rules="required email" />
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" aria-labelledby="shipping-title">
+            <h2 class="form_title" id="shipping-title">Shipping details</h2>
+            <label class="check">
+              <input type="checkbox" name="ship_other" />
+              <span>Ship to a different address?</span>
+            </label>
+            <div class="form_grid ship_fields" id="ship-fields" hidden>
+              <div class="field full">
+                <label for="s-address">Street address <span class="req" aria-hidden="true">*</span></label>
+                <input id="s-address" name="s_address" autocomplete="shipping street-address" data-rules="required" />
+              </div>
+              <div class="field">
+                <label for="s-city">Town / City <span class="req" aria-hidden="true">*</span></label>
+                <input id="s-city" name="s_city" autocomplete="shipping address-level2" data-rules="required" />
+              </div>
+              <div class="field">
+                <label for="s-zip">Postcode / ZIP <span class="req" aria-hidden="true">*</span></label>
+                <input id="s-zip" name="s_zip" autocomplete="shipping postal-code" data-rules="required zip" />
+              </div>
+            </div>
+            <div class="field notes_field">
+              <label for="notes">Order notes <span class="optional">(optional)</span></label>
+              <textarea id="notes" name="notes" placeholder="Notes about your order, e.g. a time that suits you for delivery."></textarea>
+            </div>
+          </section>
+        </div>
+
+        <aside class="panel order_summary checkout_summary" aria-labelledby="your-order">
+          <h2 id="your-order">Your Order</h2>
+          <ul class="order_lines" id="order-lines"></ul>
+          <dl class="summary_rows">
+            <div><dt>Subtotal</dt><dd id="co-subtotal"></dd></div>
+            <div class="discount" id="co-discount-row"><dt>Discount</dt><dd id="co-discount"></dd></div>
+            <div><dt>Shipping</dt><dd id="co-shipping"></dd></div>
+            <div><dt>Taxes (8%)</dt><dd id="co-tax"></dd></div>
+          </dl>
+          <div class="summary_total"><span>Total</span><strong id="co-total"></strong></div>
+
+          <fieldset class="pay_options">
+            <legend>Payment method</legend>
+            <label class="pay_option selected">
+              <span class="check radio"><input type="radio" name="payment" value="bank" checked /></span>
+              <span><strong>Direct bank transfer</strong><small>Pay into our account using your order number as the reference. Your order ships when the payment clears.</small></span>
+            </label>
+            <label class="pay_option">
+              <span class="check radio"><input type="radio" name="payment" value="card" /></span>
+              <span><strong>Credit / debit card</strong><small>This is a demo store — no card details are asked for or charged.</small></span>
+            </label>
+            <label class="pay_option">
+              <span class="check radio"><input type="radio" name="payment" value="cod" /></span>
+              <span><strong>Cash on delivery</strong><small>Pay with cash when your order arrives.</small></span>
+            </label>
+          </fieldset>
+
+          <p class="privacy_note">Your personal data is used to process your order and support your experience on this site. In this demo it stays in your browser.</p>
+          <div class="field">
+            <label class="check terms_check">
+              <input type="checkbox" name="terms" data-rules="checked" />
+              <span>I have read and agree to the website terms and conditions <span class="req" aria-hidden="true">*</span></span>
+            </label>
+          </div>
+          <button type="submit" class="btn btn_primary btn_block" id="place-order"><span>Place Order</span></button>
+        </aside>
+      </form>
+
+      <section id="checkout-empty" hidden>
+        <div class="empty_state">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <h2>Nothing to check out yet</h2>
+          <p>Your cart is empty. Add a product first and come back to place your order.</p>
+          <a class="btn btn_primary" href="../product/all.html">Browse Products</a>
+        </div>
+      </section>
+    </main>
+
+    <div data-zm="footer"></div>
+    <script src="../public/js/data.js"></script>
+    <script src="../public/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart · Zenmart</title>
+    <meta name="theme-color" content="#443297" />
+    <link rel="icon" href="../public/images/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/css/command.css" />
+    <link rel="stylesheet" href="../public/css/order.css" />
+  </head>
+  <body data-page="cart" data-root="../">
+    <div data-zm="header"></div>
+
+    <main id="main" class="container">
+      <ol class="page_router">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../product/all.html">Shop</a></li>
+        <li><span aria-current="page">Shopping Cart</span></li>
+      </ol>
+
+      <h1 class="page_title">Shopping Cart <span class="title_count" id="cart-heading-count"></span></h1>
+
+      <div class="cart_layout" id="cart-layout" hidden>
+        <div class="cart_main">
+          <div class="free_bar" aria-live="polite">
+            <p id="ship-text"></p>
+            <div class="free_bar_track"><span id="ship-bar"></span></div>
+          </div>
+
+          <div class="cart_table" role="table" aria-label="Products in your cart">
+            <div class="cart_table_head" role="row">
+              <span role="columnheader">Product</span>
+              <span role="columnheader">Price</span>
+              <span role="columnheader">Quantity</span>
+              <span role="columnheader">Total</span>
+              <span role="columnheader"><span class="visually_hidden">Remove</span></span>
+            </div>
+            <div id="cart-body" role="rowgroup"></div>
+          </div>
+
+          <div class="cart_actions">
+            <form class="coupon_form" id="coupon-form" novalidate>
+              <div class="field">
+                <label for="coupon" class="visually_hidden">Coupon code</label>
+                <div class="coupon_row">
+                  <input id="coupon" name="code" type="text" placeholder="Coupon code" autocomplete="off" />
+                  <button type="submit" class="btn btn_dark">Apply Coupon</button>
+                </div>
+              </div>
+              <p class="field_hint">Try <b>ZEN10</b> for 10% off.</p>
+            </form>
+            <div class="cart_buttons">
+              <a class="btn btn_outline" href="../product/all.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Continue Shopping</a>
+              <button type="button" class="btn btn_outline" id="clear-cart"><i class="fa-regular fa-trash-can" aria-hidden="true"></i> Clear Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel order_summary" aria-labelledby="summary-title">
+          <h2 id="summary-title">Cart Total</h2>
+          <dl class="summary_rows">
+            <div><dt>Product Subtotal</dt><dd id="sum-subtotal"></dd></div>
+            <div class="discount"><dt>Order Discounts</dt><dd id="sum-discount"></dd></div>
+            <div><dt>Estimated Shipping</dt><dd id="sum-shipping"></dd></div>
+            <div><dt>Estimated Taxes (8%)</dt><dd id="sum-tax"></dd></div>
+          </dl>
+          <p class="coupon_applied" id="coupon-applied" hidden>
+            <i class="fa-solid fa-tag" aria-hidden="true"></i> Coupon <b id="coupon-applied-code"></b> applied
+            <button type="button" id="coupon-remove">Remove</button>
+          </p>
+          <div class="summary_total"><span>Total</span><strong id="sum-total"></strong></div>
+          <a class="btn btn_primary btn_block" href="checkout.html">Proceed to Checkout <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+          <ul class="summary_trust">
+            <li><i class="fa-solid fa-lock" aria-hidden="true"></i> Secure checkout</li>
+            <li><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Free 15-day returns</li>
+          </ul>
+        </aside>
+      </div>
+
+      <section id="cart-empty" hidden>
+        <div class="empty_state">
+          <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+          <h2>Your cart is empty</h2>
+          <p>Browse laptops, TVs and headphones and add something you like — it will wait for you here.</p>
+          <a class="btn btn_primary" href="../product/all.html">Start Shopping</a>
+        </div>
+        <div class="section_head empty_suggest_head"><h2 class="section_title">Popular right now</h2></div>
+        <div class="suggest_grid" id="empty-suggestions"></div>
+      </section>
+    </main>
+
+    <div data-zm="footer"></div>
+    <script src="../public/js/data.js"></script>
+    <script src="../public/js/app.js"></script>
+  </body>
+</html>

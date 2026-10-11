@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account · Zenmart</title>
+    <meta name="theme-color" content="#443297" />
+    <link rel="icon" href="../public/images/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/css/command.css" />
+    <link rel="stylesheet" href="../public/css/account.css" />
+  </head>
+  <body data-page="signup" data-root="../">
+    <div data-zm="header"></div>
+
+    <main id="main" class="auth_page">
+      <div class="container">
+        <ol class="page_router">
+          <li><a href="../index.html">Home</a></li>
+          <li><span aria-current="page">Create Account</span></li>
+        </ol>
+        <section class="auth_card" aria-labelledby="auth-title">
+          <h1 id="auth-title">Create your account</h1>
+          <p class="auth_sub">Members get free shipping with no order minimum, faster checkout and order tracking.</p>
+
+          <form id="signup-form" class="auth_form" novalidate>
+            <div class="field">
+              <label for="name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input id="name" name="name" autocomplete="name" placeholder="e.g. Ali Tufan" data-rules="required" />
+            </div>
+            <div class="field">
+              <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com" data-rules="required email" />
+            </div>
+            <div class="field">
+              <label for="password">Password <span class="req" aria-hidden="true">*</span></label>
+              <div class="password_wrap">
+                <input id="password" name="password" type="password" autocomplete="new-password" data-rules="required password" aria-describedby="pw-hint" />
+                <button type="button" data-toggle-password aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+              </div>
+              <p class="field_hint" id="pw-hint">At least 8 characters.</p>
+            </div>
+            <div class="field">
+              <label for="confirm">Confirm password <span class="req" aria-hidden="true">*</span></label>
+              <div class="password_wrap">
+                <input id="confirm" name="confirm" type="password" autocomplete="new-password" data-rules="required match" data-match="password" />
+                <button type="button" data-toggle-password aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <div class="field">
+              <label class="check terms_check">
+                <input type="checkbox" name="terms" data-rules="checked" />
+                <span>I agree to the terms of use and privacy policy <span class="req" aria-hidden="true">*</span></span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn_dark btn_block">Create Account</button>
+          </form>
+
+          <div class="auth_or"><span>or</span></div>
+          <div class="social_auth" role="group" aria-label="Sign up with">
+            <button type="button" class="social_btn" data-social><i class="fa-brands fa-google" aria-hidden="true"></i> Google</button>
+            <button type="button" class="social_btn" data-social><i class="fa-brands fa-apple" aria-hidden="true"></i> Apple</button>
+            <button type="button" class="social_btn" data-social><i class="fa-brands fa-facebook-f" aria-hidden="true"></i> Facebook</button>
+          </div>
+          <p class="auth_switch">Already have an account? <a href="login.html">Sign in</a></p>
+        </section>
+      </div>
+    </main>
+
+    <div data-zm="footer"></div>
+    <script src="../public/js/data.js"></script>
+    <script src="../public/js/app.js"></script>
+  </body>
+</html>

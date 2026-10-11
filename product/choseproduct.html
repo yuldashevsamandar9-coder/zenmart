@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product · Zenmart</title>
+    <meta name="theme-color" content="#443297" />
+    <link rel="icon" href="../public/images/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/css/command.css" />
+    <link rel="stylesheet" href="../public/css/chosenproduct.css" />
+  </head>
+  <body data-page="product" data-root="../">
+    <div data-zm="header"></div>
+
+    <main id="main" class="container">
+      <ol class="page_router">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="all.html">Shop</a></li>
+        <li><a id="crumb-category" href="all.html">Category</a></li>
+        <li><span aria-current="page" id="crumb-product">Product</span></li>
+      </ol>
+
+      <!-- product top -->
+      <section class="product_top">
+        <div class="gallery">
+          <div class="gallery_big">
+            <img id="gallery-image" src="../public/images/gallery/macbook-1.jpg" alt="" />
+            <button type="button" class="gallery_full" id="open-full" aria-label="Open image in full size"><i class="fa-solid fa-expand" aria-hidden="true"></i></button>
+            <p class="gallery_hint"><i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i> Roll over image to zoom in</p>
+          </div>
+          <div class="gallery_thumbs" id="gallery-thumbs" role="group" aria-label="Product images"></div>
+        </div>
+
+        <div class="info_bar">
+          <div class="info_head">
+            <span class="info_brand" id="p-brand"></span>
+            <div class="stars_wrap"><span id="p-stars"></span><a href="#tab-reviews" id="p-reviews"></a></div>
+            <h1 id="p-name"></h1>
+          </div>
+
+          <div class="info_price">
+            <strong id="p-price"></strong>
+            <s id="p-old"></s>
+            <span class="save_badge" id="p-save"></span>
+          </div>
+
+          <dl class="info_specs" id="p-specs"></dl>
+
+          <div class="info_buttons">
+            <div class="qty_stepper">
+              <button type="button" id="qty-minus" aria-label="Decrease quantity"><i class="fa-solid fa-minus" aria-hidden="true"></i></button>
+              <input id="qty" type="number" min="1" max="99" value="1" inputmode="numeric" aria-label="Quantity" />
+              <button type="button" id="qty-plus" aria-label="Increase quantity"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
+            </div>
+            <button type="button" class="btn btn_primary info_add" id="add-btn"><i class="fa-solid fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+            <button type="button" class="btn btn_dark" id="buy-btn">Buy Now</button>
+            <button type="button" class="info_wish" id="wish-btn" aria-label="Save to wishlist" aria-pressed="false"><i class="fa-regular fa-heart" aria-hidden="true"></i></button>
+          </div>
+
+          <dl class="info_meta">
+            <div><dt>SKU:</dt><dd id="p-sku"></dd></div>
+            <div><dt>Categories:</dt><dd id="p-cats"></dd></div>
+            <div><dt>Tags:</dt><dd>electronics, technology, deals</dd></div>
+          </dl>
+
+          <div class="info_share">
+            <span>Share</span>
+            <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a data-share="linkedin" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <button type="button" id="copy-link" aria-label="Copy link"><i class="fa-solid fa-link" aria-hidden="true"></i></button>
+          </div>
+
+          <ul class="info_icons">
+            <li><i class="fa-solid fa-truck-fast" aria-hidden="true"></i><span><strong>Free Shipping &amp; Returns:</strong> on all orders over $200.00</span></li>
+            <li><i class="fa-solid fa-store" aria-hidden="true"></i><span><strong>Sold and shipped by Zenmart</strong> — fulfilled from our own warehouse</span></li>
+            <li><i class="fa-solid fa-rotate-left" aria-hidden="true"></i><span><strong>Free 15-day returns</strong> on unopened items</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- tabs -->
+      <section class="product_tabs" aria-label="Product information">
+        <div class="tab_head" role="tablist" aria-label="Product information">
+          <button type="button" role="tab" id="t-desc" aria-controls="tab-desc" aria-selected="true">Description</button>
+          <button type="button" role="tab" id="t-specs" aria-controls="tab-specs" aria-selected="false" tabindex="-1">Details &amp; Specs</button>
+          <button type="button" role="tab" id="t-box" aria-controls="tab-box" aria-selected="false" tabindex="-1">What’s Included</button>
+          <button type="button" role="tab" id="t-return" aria-controls="tab-return" aria-selected="false" tabindex="-1">Return Policy</button>
+          <button type="button" role="tab" id="t-qa" aria-controls="tab-qa" aria-selected="false" tabindex="-1">Questions &amp; Answers</button>
+          <button type="button" role="tab" id="t-reviews" aria-controls="tab-reviews" aria-selected="false" tabindex="-1">Customer Reviews</button>
+        </div>
+
+        <div class="tab_panel" role="tabpanel" id="tab-desc" aria-labelledby="t-desc" tabindex="0">
+          <p class="tab_lead" id="p-description"></p>
+          <div class="more_info">
+            <h2>More information</h2>
+            <div class="more_grid" id="more-grid"></div>
+          </div>
+        </div>
+
+        <div class="tab_panel" role="tabpanel" id="tab-specs" aria-labelledby="t-specs" tabindex="0" hidden>
+          <dl class="spec_table" id="tab-specs-list"></dl>
+        </div>
+
+        <div class="tab_panel" role="tabpanel" id="tab-box" aria-labelledby="t-box" tabindex="0" hidden>
+          <ul class="tick_list">
+            <li>The product, new and factory sealed</li>
+            <li>Power adapter and charging cable (where applicable)</li>
+            <li>Quick start guide and warranty card</li>
+            <li>Zenmart invoice with your order number</li>
+          </ul>
+        </div>
+
+        <div class="tab_panel" role="tabpanel" id="tab-return" aria-labelledby="t-return" tabindex="0" hidden>
+          <ul class="tick_list">
+            <li>Return unopened items within 15 days for a full refund — return shipping is free.</li>
+            <li>Opened items can be exchanged within 30 days if they are in original condition.</li>
+            <li>Refunds reach your original payment method within 5–7 business days.</li>
+          </ul>
+        </div>
+
+        <div class="tab_panel" role="tabpanel" id="tab-qa" aria-labelledby="t-qa" tabindex="0" hidden>
+          <div class="qa_list">
+            <details open>
+              <summary>How long does delivery take?</summary>
+              <p>Orders placed before 2 pm ship the same day. Standard delivery takes 2–4 business days.</p>
+            </details>
+            <details>
+              <summary>Does it come with a warranty?</summary>
+              <p>Yes — every product includes the manufacturer’s warranty, usually one year from the delivery date.</p>
+            </details>
+            <details>
+              <summary>Can I pay in instalments?</summary>
+              <p>You can split payments with the credit cards listed at checkout, subject to your card provider’s terms.</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="tab_panel" role="tabpanel" id="tab-reviews" aria-labelledby="t-reviews" tabindex="0" hidden>
+          <div class="review_summary">
+            <div class="review_score">
+              <strong id="review-score"></strong>
+              <div class="stars_wrap"><span id="review-stars"></span></div>
+              <p id="review-total"></p>
+            </div>
+            <p class="review_note">Review counts and ratings on this site are sample data for a front-end demo store.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- related -->
+      <section class="product_related" aria-labelledby="rel-title">
+        <div class="section_head"><h2 class="section_title" id="rel-title">Related products</h2></div>
+        <div class="carousel" data-carousel>
+          <button type="button" class="carousel_btn" data-prev aria-label="Previous related products"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <div class="carousel_track" id="related"></div>
+          <button type="button" class="carousel_btn" data-next aria-label="More related products"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+      </section>
+
+      <section class="product_related" aria-labelledby="like-title">
+        <div class="section_head"><h2 class="section_title" id="like-title">You may also like…</h2></div>
+        <div class="carousel" data-carousel>
+          <button type="button" class="carousel_btn" data-prev aria-label="Previous suggestions"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+          <div class="carousel_track" id="also-like"></div>
+          <button type="button" class="carousel_btn" data-next aria-label="More suggestions"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
+        </div>
+      </section>
+    </main>
+
+    <div data-zm="footer"></div>
+    <script src="../public/js/data.js"></script>
+    <script src="../public/js/app.js"></script>
+  </body>
+</html>

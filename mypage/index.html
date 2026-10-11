@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account · Zenmart</title>
+    <meta name="theme-color" content="#443297" />
+    <link rel="icon" href="../public/images/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/css/command.css" />
+    <link rel="stylesheet" href="../public/css/account.css" />
+  </head>
+  <body data-page="mypage" data-root="../">
+    <div data-zm="header"></div>
+
+    <main id="main" class="container">
+      <ol class="page_router">
+        <li><a href="../index.html">Home</a></li>
+        <li><span aria-current="page">My Account</span></li>
+      </ol>
+
+      <div class="account_layout" id="account">
+        <aside class="account_sidebar">
+          <div class="account_user">
+            <span class="account_avatar" id="acc-avatar" aria-hidden="true"></span>
+            <div>
+              <strong id="acc-name"></strong>
+              <span id="acc-email"></span>
+            </div>
+          </div>
+          <nav class="account_nav" aria-label="Account">
+            <a href="#details" data-section-link="details"><i class="fa-regular fa-user" aria-hidden="true"></i> Account Details</a>
+            <a href="#orders" data-section-link="orders"><i class="fa-solid fa-box" aria-hidden="true"></i> Orders</a>
+            <a href="#address" data-section-link="address"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Address</a>
+            <a href="#wishlist" data-section-link="wishlist"><i class="fa-regular fa-heart" aria-hidden="true"></i> Wishlist</a>
+            <a href="#invoices" data-section-link="invoices"><i class="fa-regular fa-file-lines" aria-hidden="true"></i> Invoices</a>
+            <button type="button" id="logout"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Logout</button>
+          </nav>
+        </aside>
+
+        <div class="account_main">
+          <h1 class="page_title" id="acc-title">Account Details</h1>
+
+          <!-- details -->
+          <section data-section="details" aria-labelledby="acc-title">
+            <div class="sub_tabs" role="tablist" aria-label="Account settings">
+              <button type="button" role="tab" data-sub="profile" aria-selected="true">Profile Information</button>
+              <button type="button" role="tab" data-sub="password" aria-selected="false">Password</button>
+              <button type="button" role="tab" data-sub="permissions" aria-selected="false">Permissions</button>
+            </div>
+
+            <div class="panel" data-sub-panel="profile">
+              <form id="profile-form" novalidate>
+                <div class="form_grid">
+                  <div class="field">
+                    <label for="p-first">First name <span class="req" aria-hidden="true">*</span></label>
+                    <input id="p-first" name="first" autocomplete="given-name" data-rules="required" />
+                  </div>
+                  <div class="field">
+                    <label for="p-last">Last name</label>
+                    <input id="p-last" name="last" autocomplete="family-name" />
+                  </div>
+                  <div class="field">
+                    <label for="p-email">Email address <span class="req" aria-hidden="true">*</span></label>
+                    <input id="p-email" name="email" type="email" autocomplete="email" data-rules="required email" />
+                  </div>
+                  <div class="field">
+                    <label for="p-phone">Phone</label>
+                    <input id="p-phone" name="phone" type="tel" autocomplete="tel" data-rules="phone" />
+                  </div>
+                </div>
+                <div class="form_actions">
+                  <button type="submit" class="btn btn_dark">Save Changes</button>
+                  <button type="button" class="btn btn_outline" data-cancel>Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="panel narrow" data-sub-panel="password" hidden>
+              <form id="password-form" novalidate>
+                <div class="form_stack">
+                  <div class="field">
+                    <label for="pw-current">Current password <span class="req" aria-hidden="true">*</span></label>
+                    <div class="password_wrap">
+                      <input id="pw-current" name="current" type="password" autocomplete="current-password" data-rules="required" />
+                      <button type="button" data-toggle-password aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="pw-new">New password <span class="req" aria-hidden="true">*</span></label>
+                    <div class="password_wrap">
+                      <input id="pw-new" name="new" type="password" autocomplete="new-password" data-rules="required password" />
+                      <button type="button" data-toggle-password aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="pw-confirm">Confirm new password <span class="req" aria-hidden="true">*</span></label>
+                    <div class="password_wrap">
+                      <input id="pw-confirm" name="confirm" type="password" autocomplete="new-password" data-rules="required match" data-match="new" />
+                      <button type="button" data-toggle-password aria-label="Show password" aria-pressed="false"><i class="fa-regular fa-eye" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </div>
+                <div class="form_actions">
+                  <button type="submit" class="btn btn_dark">Update Password</button>
+                  <button type="button" class="btn btn_outline" data-cancel>Cancel</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="panel" data-sub-panel="permissions" hidden>
+              <form id="permissions-form">
+                <ul class="perm_list">
+                  <li>
+                    <div><strong>SMS</strong><p>Order updates and offers sent by Zenmart to your mobile phone by SMS.</p></div>
+                    <label class="switch"><input type="checkbox" name="sms" aria-label="SMS messages" /></label>
+                  </li>
+                  <li>
+                    <div><strong>Email</strong><p>Receipts, delivery updates and the weekly deals newsletter by email.</p></div>
+                    <label class="switch"><input type="checkbox" name="email" aria-label="Email messages" /></label>
+                  </li>
+                  <li>
+                    <div><strong>Phone Call</strong><p>A call from our support team when an order needs your attention.</p></div>
+                    <label class="switch"><input type="checkbox" name="call" aria-label="Phone calls" /></label>
+                  </li>
+                </ul>
+                <div class="form_actions">
+                  <button type="submit" class="btn btn_dark">Save Preferences</button>
+                  <button type="button" class="btn btn_outline" data-cancel>Cancel</button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <!-- orders -->
+          <section data-section="orders" hidden aria-label="Orders">
+            <div id="orders-list"></div>
+          </section>
+
+          <!-- address -->
+          <section data-section="address" hidden aria-label="Address">
+            <div class="panel">
+              <form id="address-form" novalidate>
+                <div class="form_grid">
+                  <div class="field full">
+                    <label for="a-address">Street address <span class="req" aria-hidden="true">*</span></label>
+                    <input id="a-address" name="address" autocomplete="street-address" data-rules="required" />
+                  </div>
+                  <div class="field">
+                    <label for="a-city">Town / City <span class="req" aria-hidden="true">*</span></label>
+                    <input id="a-city" name="city" autocomplete="address-level2" data-rules="required" />
+                  </div>
+                  <div class="field">
+                    <label for="a-zip">Postcode / ZIP <span class="req" aria-hidden="true">*</span></label>
+                    <input id="a-zip" name="zip" autocomplete="postal-code" data-rules="required zip" />
+                  </div>
+                  <div class="field full">
+                    <label for="a-country">Country / Region</label>
+                    <select id="a-country" name="country" autocomplete="country-name">
+                      <option>United States</option>
+                      <option>United Kingdom</option>
+                      <option>South Korea</option>
+                      <option>Uzbekistan</option>
+                      <option>Germany</option>
+                      <option>Canada</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form_actions">
+                  <button type="submit" class="btn btn_dark">Save Address</button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+          <!-- wishlist -->
+          <section data-section="wishlist" hidden aria-label="Wishlist">
+            <div class="wish_grid" id="wishlist-grid"></div>
+          </section>
+
+          <!-- invoices -->
+          <section data-section="invoices" hidden aria-label="Invoices">
+            <div class="panel table_panel" id="invoices-list"></div>
+          </section>
+        </div>
+      </div>
+
+      <section id="account-guest" hidden>
+        <div class="empty_state">
+          <i class="fa-regular fa-user" aria-hidden="true"></i>
+          <h1>Sign in to your account</h1>
+          <p>See your orders, wishlist, invoices and saved address in one place.</p>
+          <div class="guest_actions">
+            <a class="btn btn_dark" href="../other/login.html?next=mypage/index.html">Sign In</a>
+            <a class="btn btn_outline" href="../other/signup.html">Create Account</a>
+          </div>
+        </div>
+        <div class="guest_wish" id="guest-wish" hidden>
+          <div class="section_head"><h2 class="section_title">Saved on this device</h2></div>
+          <div class="wish_grid" id="guest-wish-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <div data-zm="footer"></div>
+    <script src="../public/js/data.js"></script>
+    <script src="../public/js/app.js"></script>
+  </body>
+</html>

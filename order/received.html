@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Received · Zenmart</title>
+    <meta name="theme-color" content="#443297" />
+    <link rel="icon" href="../public/images/icons/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../public/css/command.css" />
+    <link rel="stylesheet" href="../public/css/order.css" />
+  </head>
+  <body data-page="received" data-root="../">
+    <div data-zm="header"></div>
+
+    <main id="main" class="container">
+      <ol class="page_router">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="cart.html">Cart</a></li>
+        <li><span aria-current="page">Order Received</span></li>
+      </ol>
+
+      <section id="received" class="received">
+        <header class="received_head">
+          <span class="received_icon"><img src="../public/images/icons/successful.svg" alt="" width="80" height="80" /></span>
+          <h1>Your order is completed!</h1>
+          <p>Thank you. Your order has been received. A confirmation was sent to <b id="o-email"></b>.</p>
+        </header>
+
+        <dl class="order_info">
+          <div><dt>Order Number</dt><dd id="o-number"></dd></div>
+          <div><dt>Date</dt><dd id="o-date"></dd></div>
+          <div><dt>Total</dt><dd id="o-total"></dd></div>
+          <div><dt>Payment Method</dt><dd id="o-payment"></dd></div>
+        </dl>
+
+        <section class="panel order_details" aria-labelledby="details-title">
+          <h2 id="details-title">Order Details</h2>
+          <div class="order_details_head"><span>Product</span><span>Subtotal</span></div>
+          <ul class="order_lines" id="o-lines"></ul>
+          <dl class="summary_rows">
+            <div><dt>Subtotal</dt><dd id="o-subtotal"></dd></div>
+            <div class="discount" id="o-discount-row"><dt>Discount</dt><dd id="o-discount"></dd></div>
+            <div><dt>Shipping</dt><dd id="o-shipping"></dd></div>
+            <div><dt>Taxes</dt><dd id="o-tax"></dd></div>
+            <div><dt>Payment Method</dt><dd id="o-payment-row"></dd></div>
+          </dl>
+          <div class="summary_total"><span>Total</span><strong id="o-grand"></strong></div>
+          <p class="deliver_to"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> <span id="o-address"></span></p>
+        </section>
+
+        <div class="received_actions">
+          <a class="btn btn_primary" href="../product/all.html">Continue Shopping</a>
+          <a class="btn btn_outline" href="../mypage/index.html#orders">View My Orders</a>
+        </div>
+      </section>
+
+      <section id="received-empty" hidden>
+        <div class="empty_state">
+          <i class="fa-solid fa-receipt" aria-hidden="true"></i>
+          <h1>We couldn’t find that order</h1>
+          <p>Orders live in this browser only. Place an order from your cart and its confirmation appears here.</p>
+          <a class="btn btn_primary" href="cart.html">Go to Cart</a>
+        </div>
+      </section>
+    </main>
+
+    <div data-zm="footer"></div>
+    <script src="../public/js/data.js"></script>
+    <script src="../public/js/app.js"></script>
+  </body>
+</html>
